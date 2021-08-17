@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: DefaultTabController(length: 4, child: MyHomePage(title: '弱者救済')),
     );
   }
 }
@@ -72,36 +72,164 @@ class _MyHomePageState extends State<MyHomePage> {
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.settings,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              // TODO: Click action
+            },
+          ),
+        ],
+        bottom: PreferredSize(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Column(
+                  children: [
+                    ElevatedButton(
+                      child: const Icon(Icons.people),
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.white,
+                        onPrimary: Colors.black,
+                        shape: const CircleBorder(
+                          side: BorderSide(
+                            color: Colors.transparent,
+                            width: 1,
+                            style: BorderStyle.none,
+                          ),
+                        ),
+                      ),
+                      onPressed: () {},
+                    ),
+                    Text('0人')
+                  ],
+                ),
+                Column(
+                  children: [
+                    ElevatedButton(
+                      child: const Icon(Icons.run_circle_outlined),
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.white,
+                        onPrimary: Colors.black,
+                        shape: const CircleBorder(
+                          side: BorderSide(
+                            color: Colors.black,
+                            width: 1,
+                            style: BorderStyle.solid,
+                          ),
+                        ),
+                      ),
+                      onPressed: () {},
+                    ),
+                    Text('0人')
+                  ],
+                ),
+                Column(
+                  children: [
+                    ElevatedButton(
+                      child: const Icon(
+                          Icons.sentiment_very_dissatisfied_outlined),
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.white,
+                        onPrimary: Colors.black,
+                        shape: const CircleBorder(
+                          side: BorderSide(
+                            color: Colors.black,
+                            width: 1,
+                            style: BorderStyle.solid,
+                          ),
+                        ),
+                      ),
+                      onPressed: () {},
+                    ),
+                    Text('0人')
+                  ],
+                ),
+                Column(
+                  children: [
+                    ElevatedButton(
+                      child: const Icon(Icons.sick),
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.white,
+                        onPrimary: Colors.black,
+                        shape: const CircleBorder(
+                          side: BorderSide(
+                            color: Colors.black,
+                            width: 1,
+                            style: BorderStyle.solid,
+                          ),
+                        ),
+                      ),
+                      onPressed: () {},
+                    ),
+                    Text('0人')
+                  ],
+                )
+              ],
+            ),
+            preferredSize: Size.fromHeight(60.0)),
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Column(
+            // mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                width: 300,
+                height: 100,
+                margin: new EdgeInsets.all(20),
+                child: ElevatedButton(
+                  child: const Text('あいさつ'),
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.orange,
+                    onPrimary: Colors.white,
+                  ),
+                  onPressed: () {},
+                ),
+              ),
+              Container(
+                width: 300,
+                height: 100,
+                margin: new EdgeInsets.all(20),
+                child: ElevatedButton(
+                  child: const Text('痴漢'),
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.orange,
+                    onPrimary: Colors.white,
+                  ),
+                  onPressed: () {},
+                ),
+              ),
+              Container(
+                width: 300,
+                height: 100,
+                margin: new EdgeInsets.all(20),
+                child: ElevatedButton(
+                  child: const Text('SOS'),
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.orange,
+                    onPrimary: Colors.white,
+                  ),
+                  onPressed: () {},
+                ),
+              ),
+              Container(
+                width: 300,
+                height: 100,
+                margin: new EdgeInsets.all(20),
+                child: TextField(
+                  maxLength: 2,
+
+                  decoration: InputDecoration.collapsed(hintText: "Enter your text here"),
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
